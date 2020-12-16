@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DSC106 - Final Project</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Paytone+One&display=swap" rel="stylesheet" />
+	<link href="./styles/dashboard.css" rel="stylesheet" />
+	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="./scripts/main.js"></script>
+
+    <!-- beer map -->
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+
+    <!-- colorado pie chart -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- colorado histogram ibu -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- js scripts (piechart) -->
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world-continents.js"></script>
+
+    <!-- js scripts (barchart) -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- js scripts (stockchart) -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+</head>
+
+<body>
+	<h1 style="text-align: center;">Craft Beers in the USA</h1>
+    <!-- <div id="worldMap"></div> -->
+    <div id="beer_container" style="background-color: black;"></div>
+    
+    <h1 style="text-align: center;">How about in the three most popular states?</h1>
+
+    <h2>In Colorado</h2>
+    <hr />
+
+	<section id="summaryCharts" class="chart-parent--container">
+        <section class="chart--container">
+            <img src="images/Colorado_Cities.jpg">
+        </section>
+        <section id="colorado_pie" class="chart--container"></section>
+        <section id="colorado_hist" class="chart--container"></section>
+	</section>
+
+
+    <h2>In Michigan</h2>
+    <hr />
+
+	<section id="summaryCharts" class="chart-parent--container">
+        <section class="chart--container">
+            <img src="images/Michigan_Cities.jpg">
+        </section>
+        <section id="indiana_pie" class="chart--container"></section>
+        <section id="indiana_hist" class="chart--container"></section>
+	</section>
+
+    
+    <h2>In Indiana</h2>
+    <hr />
+
+	<section id="summaryCharts" class="chart-parent--container">
+        <section class="chart--container">
+            <img src="images/Indiana_Cities.jpg">
+        </section>
+        <section id="michigan_pie" class="chart--container"></section>
+        <section id="michigan_hist" class="chart--container"></section>
+	</section>
+
+
+    <h1 style="text-align: center;">As Californians, what and where do we like to drink?</h1>
+
+    <figure class="highcharts-figure">
+        <div id="cali_column"></div>
+    </figure>
+
+    <h1 style="text-align: center;">What's trending in our Beer Capitals?</h1>
+
+    <!-- Add column chart of Beer Style Frequency for each city -->
+    <section id="summaryCharts" class="chart-parent--container">
+        <button id = "city_button" class= "chart--container" type="button" onclick="updateToSD()">
+            <section id="city_tiles">42</section>
+            <section id="city_names">Breweries in San Diego </section>
+        </button>
+        <button  id = "city_button" class= "chart--container" type="button" onclick="updateToSF()">
+            <section id="city_tiles">32</section>
+            <section id="city_names">Breweries in San Francisco</section>
+        </button>
+        <button  id = "city_button" class= "chart--container" type="button" onclick="updateToBoonville()">
+            <section id="city_tiles">18</section>
+            <section id="city_names">Breweries in Boonville</section>
+        </button>
+    </section>
+
+    <h2 id = "temp_city" style="text-align: center;">Top Three San Diego Breweries</h2>
+        <section id="summaryCharts" class="chart-parent--container">
+            <button class = "brew_button" id = "first_button" type="button" onclick="changeTableToMTB()">
+                <h5 id="first">Modern Times Beer</h5>
+            </button>
+
+            <button class = "brew_button" id = "second_button" type="button" onclick="changeTableToTGB()">
+                <h5 id="second">TailGate Beer</h5>
+            </button>
+            
+            <button class = "brew_button" id = "third_button" type="button" onclick="changeTableToMHBC()">
+                <h5 id="third">Mike Hess Brewing Company</h5>
+            </button>
+        </section>
+    <h2 id = "temp_brewery" style="text-align: center;">Craft Beers at Modern Times Beer</h2>
+
+    <table id = "temp_table">
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+          <th>ABV</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+          <td>69</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+          <td>69</td>
+        </tr>
+        <tr>
+          <td>Ernst Handel</td>
+          <td>Roland Mendel</td>
+          <td>Austria</td>
+          <td>69</td>
+        </tr>
+        <tr>
+          <td>Island Trading</td>
+          <td>Helen Bennett</td>
+          <td>UK</td>
+          <td>69</td>    
+        </tr>
+        <tr>
+          <td>Laughing Bacchus Winecellars</td>
+          <td>Yoshi Tannamuri</td>
+          <td>Canada</td>
+          <td>69</td>
+        </tr>
+        <tr>
+          <td>Magazzini Alimentari Riuniti</td>
+          <td>Giovanni Rovelli</td>
+          <td>Italy</td>
+          <td>69</td>
+        </tr>
+    </table>
+</body>
+
+</html>
