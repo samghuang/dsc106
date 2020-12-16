@@ -1,0 +1,105 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+#vitalScorecards {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+}
+
+/* #summaryCharts {
+    display: flex;
+    height: 500px;
+}
+
+#summaryCharts section {
+    border: 1px solid black;
+    background: green;
+    flex: 1 1 auto;
+    flex-basis: 50%;
+} */
+.chart-parent--container {
+    display: flex;
+}
+
+.chart--container {
+    height: 100%;
+    width: 100%;
+    min-height: 400px;
+}
+
+#vitalScorecards h3 {
+    color: black;
+}
+
+#vitalScorecards output {
+    font-size: xx-large;
+    color: blue;
+}
+
+#totalSales:before {
+    content: '$';
+    font-size: xx-large;
+    color: green;
+}
+#worldMap {
+    height: 500px; 
+    min-width: 310px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+
+/* w3schools things */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#city_tiles{
+    font-size: 50px;
+}
+#city_names{
+    font-size: 18px;
+}
+#city_button{
+    background-color: #F6F4F2;
+    color: #523124;
+    border: 0.001px solid #EAE2DA;
+}
+.brew_button{
+    background-color: #F6F4F2;
+    color: #523124;
+    border: 0.001px solid #EAE2DA;
+    margin: auto;
+    width: 33%;
+    padding: 15px; 
+}
+#temp_table{
+    background-color: #F6F4F2;
+    color: #523124;
+    border: 0.001px solid #EAE2DA;
+}
+#temp_table tr:nth-child(even){
+    background-color: white;
+}
